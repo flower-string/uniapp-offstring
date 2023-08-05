@@ -1,10 +1,9 @@
 <template>
-	<view class="top">
-		<view v-for="(item, index) in navs" 
-				  :class="['item', index == current ? 'active' : '']"
-					@click="setCurrent(index)">
-			{{ item }}
-		</view>
+	<view class="navBox">
+		<MooNav :navs="navs"
+		        @change='setCurrent'
+						:current="current">
+	  </MooNav>
 	</view>
 	
 	<view class="cards">
@@ -24,6 +23,8 @@
 </template>
 
 <script>
+	import MooNav from '../../components/MooNav.vue'
+	
 	export default {
 		data() {
 			return {
@@ -36,8 +37,12 @@
 				]
 			}
 		},
+		components: {
+			MooNav,
+		},
 		methods: {
 			setCurrent(index) {
+				console.log(index);
 				this.current = index;
 			},
 			createCommit() {
@@ -53,25 +58,6 @@
 </script>
 
 <style>
-	.top {
-		width: 100vw;
-		overflow-x: scroll;
-		white-space: nowrap;
-	}
-	
-	.top .item {
-		height: 100%;
-		margin: 10rpx 20rpx 0 20rpx;
-		color: #bcbcbc;
-		display: inline-block;
-		word-wrap: none;
-	}
-	
-	.top .item.active {
-		border-bottom: 3px solid #25d3de;
-		color: black;
-	}
-	
 	.add {
 		position: fixed;
 		z-index: 1;
