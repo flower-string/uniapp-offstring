@@ -25,9 +25,33 @@
 				"navigationBarTitleText": "社区",
 				"enablePullDownRefresh": false
 			}
-
+		}, {
+			"path": "pages/trackDetail/trackDetail",
+			"style": {
+				"navigationBarTitleText": "谱面详情"
+			}
+		}, {
+			"path": "pages/dress/dress",
+			"style": {
+				"navigationBarTitleText": "装扮空间",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/setting/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/visa/visa",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "日签墙",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -37,8 +61,7 @@
 	"tabBar": {
 		"backgroundColor": "#ffffff",
 		"selectedColor": "#ffffff",
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index/index",
 				"iconPath": "static/tabbar/index.png",
 				"selectedIconPath": "static/tabbar/首页.png"

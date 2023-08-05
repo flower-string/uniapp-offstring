@@ -8,10 +8,12 @@
 	</view>
 	
 	<view class="cards">
-		<view class="card">
-			<view class="iconfont icon-qiandao"></view>
+		<view class="card"
+					v-for="item in cards"
+					@click="toPage(item.path)">
+			<view :class="['iconfont', item.icon]"></view>
 			<view class="tt">
-				日签墙
+				{{ item.text }}
 			</view>
 		</view>
 	</view>
@@ -27,6 +29,11 @@
 			return {
 				current: 0,
 				navs: ['精品', '悬赏', '树洞', '生活广场', '头像壁纸', '学习'],
+				cards: [
+					{text: '日签墙', icon: 'icon-qiandao', path: 'visa'},
+					{text: '装扮', icon: 'icon-qunzi', path: 'dress'},
+					{text: '写谱', icon: 'writing', path: 'setting'}
+				]
 			}
 		},
 		methods: {
@@ -35,6 +42,11 @@
 			},
 			createCommit() {
 				
+			},
+			toPage(path) {
+				uni.navigateTo({
+					url: `/pages/${path}/${path}`
+				})
 			}
 		}
 	}
@@ -44,14 +56,15 @@
 	.top {
 		width: 100vw;
 		overflow-x: scroll;
-		display: flex;
-		justify-content: center;
+		white-space: nowrap;
 	}
 	
 	.top .item {
 		height: 100%;
 		margin: 10rpx 20rpx 0 20rpx;
 		color: #bcbcbc;
+		display: inline-block;
+		word-wrap: none;
 	}
 	
 	.top .item.active {
@@ -81,6 +94,13 @@
 	.add text {
 		color: white;
 	}
+	
+	.cards {
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+	}
+	
 	.card {
 		width: 22vw;
 		height: 15vw;

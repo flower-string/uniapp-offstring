@@ -1,0 +1,1 @@
+<view class="content"><view class="ul"><view wx:for="{{a}}" wx:for-item="item" class="li" style="{{'--x:' + item.c}}" bindtap="{{item.d}}"><view class="cover"><image src="{{item.a}}" mode=""></image></view><view class="name">{{item.b}}</view></view></view></view>

@@ -146,6 +146,7 @@
 		top: 0;
 		width: 100vw;
 		height: 400rpx;
+		overflow: hidden;
 	}
 	
 	.bg image {

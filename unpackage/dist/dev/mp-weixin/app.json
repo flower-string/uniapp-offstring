@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/music/music",
+    "pages/community/community",
+    "pages/trackDetail/trackDetail",
+    "pages/dress/dress",
+    "pages/setting/setting",
+    "pages/visa/visa"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/index.png",
+        "selectedIconPath": "static/tabbar/首页.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "iconPath": "static/tabbar/community.png",
+        "selectedIconPath": "static/tabbar/社区.png"
+      },
+      {
+        "pagePath": "pages/music/music",
+        "iconPath": "static/tabbar/play.png",
+        "selectedIconPath": "static/tabbar/音乐.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "static/tabbar/me.png",
+        "selectedIconPath": "static/tabbar/个人中心.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

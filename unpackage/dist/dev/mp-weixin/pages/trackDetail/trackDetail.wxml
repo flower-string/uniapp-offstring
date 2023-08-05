@@ -1,0 +1,1 @@
+<view class="top"><view class="cover"><image src="{{a}}" alt=""></image></view><view class="box"><view class="name">{{b}}</view><view class="author">{{c}}</view></view><view class="play"> 播放 </view></view><view class="content"></view><view class=""><view class="love" bindtap="{{d}}"> ai </view></view>
