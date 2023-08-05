@@ -19,6 +19,9 @@
 		margin-top: 0;
 		display: inline-block;
 }
+.avatarbox.data-v-19c123a7 {
+		margin-top: -50rpx;
+}
 .bg.data-v-19c123a7 {
 		position: absolute;
 		left: 0;
@@ -29,12 +32,6 @@
 }
 .bg image.data-v-19c123a7 {
 		width: 100%;
-}
-.ava.data-v-19c123a7 {
-		width: 100rpx;
-		height: 100rpx;
-		border-radius: 50%;
-		margin-top: -50rpx;
 }
 .nickname.data-v-19c123a7 {
 		color: #000000;

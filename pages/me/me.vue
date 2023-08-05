@@ -1,76 +1,84 @@
 <template>
-	<view class="box">
-		<view class="bg">
-			<image src="../../static/简约背景图.jpg" mode="aspectFill"></image>
-		</view>
-		
-		<view class="user">
-			<image class="ava" :src="info.avatarUrl" mode=""></image>
-			<view class="nickname">
-				{{ info.nickName }}
+	<view class="">
+		<view class="box">
+			<view class="bg">
+				<image src="../../static/bg.jpg" mode="aspectFill"></image>
 			</view>
-			<view class="ip">
-				ip属地：{{ info.ip }}
-			</view>
-			<view class="tags">
-				<view class="tag" v-for="item in info.tags">
-					{{ item }}
+			<view class="user">
+				<Avatar size="100rpx" 
+								:avatarImage="info.avatarUrl"
+								borderImage="/static/avatar/purple.png"
+								class="avatarbox">
+				</Avatar>
+				<view class="nickname">
+					{{ info.nickName }}
+				</view>
+				<view class="ip">
+					ip属地：{{ info.ip }}
+				</view>
+				<view class="tags">
+					<view class="tag" v-for="item in info.tags">
+						{{ item }}
+					</view>
+				</view>
+				<view class="desc">
+					{{ info.desc }}
 				</view>
 			</view>
-			<view class="desc">
-				{{ info.desc }}
+		</view>
+		
+		
+		<view class="topa">
+			<view class="dress pa" @click="toPage('dress')">
+				<i class="iconfont icon-qunzi"></i>
+				装扮空间
 			</view>
-		</view>
-	</view>
-	
-	
-	<view class="topa">
-		<view class="dress pa" @click="toPage('dress')">
-			<i class="iconfont icon-qunzi"></i>
-			装扮空间
-		</view>
-		<view class="setting pa" @click="toPage('setting')">
-			<i class="iconfont icon-bianji"></i>
-			编辑资料
-		</view>
-	</view>
-	
-	<view class="tongji">
-		<view class="tongji-item">
-			<view class="title">
-				收到比心
-			</view>
-			<view class="num">
-				{{ info.biixn }}
+			<view class="setting pa" @click="toPage('setting')">
+				<i class="iconfont icon-bianji"></i>
+				编辑资料
 			</view>
 		</view>
 		
-		<view class="tongji-item">
-			<view class="title">
-				社区发言
+		<view class="tongji">
+			<view class="tongji-item">
+				<view class="title">
+					收到比心
+				</view>
+				<view class="num">
+					{{ info.biixn }}
+				</view>
 			</view>
-			<view class="num">
-				{{ info.tiezi }}
+			
+			<view class="tongji-item">
+				<view class="title">
+					社区发言
+				</view>
+				<view class="num">
+					{{ info.tiezi }}
+				</view>
 			</view>
-		</view>
-		
-		<view class="tongji-item">
-			<view class="title">
-				乐谱创作
-			</view>
-			<view class="num">
-				{{ info.yuepu }}
+			
+			<view class="tongji-item">
+				<view class="title">
+					乐谱创作
+				</view>
+				<view class="num">
+					{{ info.yuepu }}
+				</view>
 			</view>
 		</view>
 	</view>
+	
 </template>
 
 <script>
+	import Avatar from '/components/Avatar.vue'
+	
 	export default {
 		data() {
 			return {
 				info: {
-					avatarUrl: '../../static/logo.png',
+					avatarUrl: '/static/logo.png',
 					nickName: '姓名',
 					ip: '未知',
 					desc: '你还没有写过个人介绍',
@@ -80,6 +88,9 @@
 					yuepu: 0,
 				}
 			}
+		},
+		components: {
+			Avatar,
 		},
 		methods: {
 			wxLogin() {
@@ -140,6 +151,10 @@
 		display: inline-block;
 	}
 	
+	.avatarbox {
+		margin-top: -50rpx;
+	}
+	
 	.bg {
 		position: absolute;
 		left: 0;
@@ -151,12 +166,6 @@
 	
 	.bg image {
 		width: 100%;
-	}
-	.ava {
-		width: 100rpx;
-		height: 100rpx;
-		border-radius: 50%;
-		margin-top: -50rpx;
 	}
 	
 	.nickname {

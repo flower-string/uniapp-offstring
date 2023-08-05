@@ -3,7 +3,8 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
-      info: ""
+      info: "",
+      loved: true
     };
   },
   methods: {
@@ -39,6 +40,9 @@ const _sfc_main = {
           });
         }
       });
+    },
+    setLove() {
+      this.loved = !this.loved;
     }
   },
   onLoad(option) {
@@ -51,7 +55,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: $data.info.cover,
     b: common_vendor.t($data.info.name),
     c: common_vendor.t($data.info.author),
-    d: common_vendor.o((...args) => $options.upLoadMusic && $options.upLoadMusic(...args))
+    d: common_vendor.n($data.loved ? "icon-xiai" : "icon-aixin"),
+    e: common_vendor.o((...args) => $options.setLove && $options.setLove(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/Web前端/Project/offstring/pages/trackDetail/trackDetail.vue"]]);

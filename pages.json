@@ -64,22 +64,22 @@
 		"list": [{
 				"pagePath": "pages/index/index",
 				"iconPath": "static/tabbar/index.png",
-				"selectedIconPath": "static/tabbar/首页.png"
+				"selectedIconPath": "static/tabbar/index_a.png"
 			},
 			{
 				"pagePath": "pages/community/community",
 				"iconPath": "static/tabbar/community.png",
-				"selectedIconPath": "static/tabbar/社区.png"
+				"selectedIconPath": "static/tabbar/community_a.png"
 			},
 			{
 				"pagePath": "pages/music/music",
 				"iconPath": "static/tabbar/play.png",
-				"selectedIconPath": "static/tabbar/音乐.png"
+				"selectedIconPath": "static/tabbar/music_a.png"
 			},
 			{
 				"pagePath": "pages/me/me",
 				"iconPath": "static/tabbar/me.png",
-				"selectedIconPath": "static/tabbar/个人中心.png"
+				"selectedIconPath": "static/tabbar/me_a.png"
 			}
 		]
 	},

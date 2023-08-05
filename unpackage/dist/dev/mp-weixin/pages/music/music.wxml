@@ -1,1 +1,1 @@
-<view></view>
+<view> 谱面预览和编辑功能正在全力开发中，请先使用sky studio进行过度，我们会尽快完成研发并上线使用 </view><button bindtap="{{a}}">点击复制sky studio下载地址</button>

@@ -1,10 +1,11 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const Avatar = () => "../../components/Avatar.js";
 const _sfc_main = {
   data() {
     return {
       info: {
-        avatarUrl: "../../static/logo.png",
+        avatarUrl: "/static/logo.png",
         nickName: "姓名",
         ip: "未知",
         desc: "你还没有写过个人介绍",
@@ -14,6 +15,9 @@ const _sfc_main = {
         yuepu: 0
       }
     };
+  },
+  components: {
+    Avatar
   },
   methods: {
     wxLogin() {
@@ -46,9 +50,17 @@ const _sfc_main = {
     this.wxLogin();
   }
 };
+if (!Array) {
+  const _component_Avatar = common_vendor.resolveComponent("Avatar");
+  _component_Avatar();
+}
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: $data.info.avatarUrl,
+    a: common_vendor.p({
+      size: "100rpx",
+      avatarImage: $data.info.avatarUrl,
+      borderImage: "/static/avatar/purple.png"
+    }),
     b: common_vendor.t($data.info.nickName),
     c: common_vendor.t($data.info.ip),
     d: common_vendor.f($data.info.tags, (item, k0, i0) => {

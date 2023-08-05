@@ -1,0 +1,1 @@
+<view class="avatar" style="{{'--size:' + c}}"><image class="ava" src="{{a}}" mode=""></image><image class="avaborder" src="{{b}}" mode=""></image></view>

@@ -14,7 +14,7 @@
 
 <style>
 	/*每个页面公共css */
-	/* @import url('https://at.alicdn.com/t/c/font_4195145_24jxj9m2ozt.css'); */
+	@import url('https://at.alicdn.com/t/c/font_4195145_88pt435y059.css');
 	
 	page {
 		background-color: #f8f8f8;

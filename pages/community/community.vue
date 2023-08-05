@@ -32,7 +32,7 @@
 				cards: [
 					{text: '日签墙', icon: 'icon-qiandao', path: 'visa'},
 					{text: '装扮', icon: 'icon-qunzi', path: 'dress'},
-					{text: '写谱', icon: 'writing', path: 'setting'}
+					{text: '写谱', icon: 'icon-yongyan', path: 'setting'}
 				]
 			}
 		},

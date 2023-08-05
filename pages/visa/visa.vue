@@ -4,10 +4,16 @@
 			<image src="../../static/tmp/星河万里.jpg" mode=""></image>
 		</view>
 		
+		<view :class="['btn', visad ? 'visad' : '']" @click="setVisad">
+			{{ visad ? '今日已签到' : '立即签到' }}
+		</view>
+		
 		<view class="ping">
 			<view class="info">
 				<view class="avatar">
-					<image src="../../static/logo.png" mode=""></image>
+					<Avatar size="80rpx"
+					        avatar-image="/static/logo.png"
+									border-image="/static/avatar/lightgirl.png"></Avatar>
 				</view>
 				
 				<view class="zi">
@@ -37,14 +43,25 @@
 </template>
 
 <script>
+	import Avatar from '../../components/Avatar.vue'
+	
 	export default {
 		data() {
 			return {
-				
+				visad: false
 			}
 		},
+		components: {
+			Avatar
+		},
 		methods: {
-			
+			setVisad() {
+				if(this.visad) {
+					return;
+				}
+				this.visad = true;
+				console.log("签到成功");
+			}
 		}
 	}
 </script>
@@ -67,15 +84,8 @@
 	.ping {
 		width: 90vw;
 		margin: auto;
-		margin-top: 100rpx;
+		margin-top: 50rpx;
 		padding: 50rpx;
-	}
-	
-	.avatar {
-		width: 80rpx;
-		height: 80rpx;
-		border-radius: 50%;
-		overflow: hidden;
 	}
 	
 	.info {
@@ -97,7 +107,7 @@
 	}
 	
 	.content {
-		margin: 50rpx 10rpx;
+		margin: 30rpx 10rpx;
 	}
 	
 	.left, .right {
@@ -112,5 +122,25 @@
 	.article {
 		text-indent: 2em;
 		color: #4b4b4b;
+	}
+	
+	.btn {
+		width: 50vw;
+		height: 5vh;
+		text-align: center;
+		margin: auto;
+		line-height: 5vh;
+		font-size: 2vh;
+		margin-top: 3vh;
+		background-color: white;
+		border: 1px solid #25d3de;
+		color: #25d3de;
+		border-radius: 2.5vh;
+	}
+	
+	.btn.visad {
+		background-color: #a6a6a6;
+		color: #4b4b4b;
+		border: #4b4b4b;
 	}
 </style>

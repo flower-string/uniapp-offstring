@@ -1,37 +1,41 @@
 <template>
-	<view class="top">
-		<view class="cover">
-			<img :src="info.cover" alt="">
-		</view>
-		<view class="box">
-			<view class="name">
-				{{ info.name }}
-			</view>
-			<view class="author">
-				{{ info.author }}
-			</view>
-		</view>
-
-		<view class="play">
-			播放
-		</view>
-	</view>
-	<view class="content">
-
-	</view>
-
 	<view class="">
-		<view class="love" @click="upLoadMusic">
-			ai
+		<view class="top">
+			<view class="cover">
+				<img :src="info.cover" alt="">
+			</view>
+			<view class="box">
+				<view class="name">
+					{{ info.name }}
+				</view>
+				<view class="author">
+					{{ info.author }}
+				</view>
+			</view>
+		
+			<view class="play">
+				播放
+			</view>
+		</view>
+		<view class="content">
+		
+		</view>
+		
+		<view class="">
+			<view class="love" @click="setLove">
+				<i :class="['iconfont', loved ? 'icon-xiai' : 'icon-aixin']"></i>
+			</view>
 		</view>
 	</view>
+	
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				info: ''
+				info: '',
+				loved: true
 			}
 		},
 		methods: {
@@ -60,6 +64,9 @@
 						});
 					},
 				});
+			},
+			setLove() {
+				this.loved = !this.loved;
 			}
 		},
 		onLoad(option) {
