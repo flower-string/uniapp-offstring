@@ -10,6 +10,7 @@ if (!Math) {
   "./pages/dress/dress.js";
   "./pages/setting/setting.js";
   "./pages/visa/visa.js";
+  "./pages/profile/profile.js";
 }
 const _sfc_main = {
   onLaunch: function() {

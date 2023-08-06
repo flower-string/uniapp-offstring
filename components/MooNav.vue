@@ -43,6 +43,9 @@
 		width: 100vw;
 		overflow-x: scroll;
 		white-space: nowrap;
+		position: sticky;
+		left: 0;
+		top: 0;
 	}
 
 	.nav .item {

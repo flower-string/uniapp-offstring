@@ -27,13 +27,12 @@
 			</view>
 		</view>
 		
-		
 		<view class="topa">
 			<view class="dress pa" @click="toPage('dress')">
 				<i class="iconfont icon-qunzi"></i>
 				装扮空间
 			</view>
-			<view class="setting pa" @click="toPage('setting')">
+			<view class="setting pa" @click="toPage('profile')">
 				<i class="iconfont icon-bianji"></i>
 				编辑资料
 			</view>

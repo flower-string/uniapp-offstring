@@ -70,7 +70,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     e: common_vendor.t($data.info.desc),
     f: common_vendor.o(($event) => $options.toPage("dress")),
-    g: common_vendor.o(($event) => $options.toPage("setting")),
+    g: common_vendor.o(($event) => $options.toPage("profile")),
     h: common_vendor.t($data.info.biixn),
     i: common_vendor.t($data.info.tiezi),
     j: common_vendor.t($data.info.yuepu)

@@ -1,20 +1,4 @@
 
-.top {
-		width: 100vw;
-		overflow-x: scroll;
-		white-space: nowrap;
-}
-.top .item {
-		height: 100%;
-		margin: 10rpx 20rpx 0 20rpx;
-		color: #bcbcbc;
-		display: inline-block;
-		word-wrap: none;
-}
-.top .item.active {
-		border-bottom: 3px solid #25d3de;
-		color: black;
-}
 .add {
 		position: fixed;
 		z-index: 1;

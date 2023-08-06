@@ -2,11 +2,12 @@
 	<view>
 		<MooNav :navs="list"
 						@change='setCurrent'
-						:current="current"></MooNav>
+						:current="current"
+						class="moo-nav"></MooNav>
 	</view>
 	
 	<view class="lbody">
-		<view v-show="current == 0" class="container1">
+		<view v-if="current == 0" class="container1" id="container1">
 			<view class="box" v-for="item in 16">
 				<view class="card">
 					<Avatar size='100rpx'
@@ -22,7 +23,7 @@
 			</view>
 		</view>
 	
-		<view v-show="current == 1" class="container2">
+		<view v-else-if="current == 1" class="container2" id="container2">
 			<view class="box" v-for="item in 16">
 				<view class="card">
 					<image src="/static/bg.jpg" mode=""></image>
@@ -36,7 +37,7 @@
 			</view>
 		</view>
 		
-		<view v-show="current == 2" class="container3">
+		<view v-else-if="current == 2" class="container3" id="container3">
 			<view class="box" v-for="item in 16">
 				<view class="card">
 					<image src="/static/bg.jpg" mode=""></image>
@@ -51,7 +52,7 @@
 			
 		</view>
 		
-		<view v-show="current == 3" class="container4">
+		<view v-else-if="current == 3" class="container4" id="container4">
 			<view class="box" v-for="item in 16">
 				<view class="card">
 					<image src="/static/bg.jpg" mode=""></image>
@@ -91,6 +92,12 @@
 </script>
 
 <style scoped>
+	.moo-nav {
+		position: sticky;
+		left: 0;
+		top: 0;
+	}
+	
 	.lbody {
 		display: flex;
 		justify-content: center;

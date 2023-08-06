@@ -1,0 +1,1 @@
+<view class="nav data-v-2c10a28a"><view wx:for="{{a}}" wx:for-item="item" class="{{['data-v-2c10a28a', 'item', item.b]}}" bindtap="{{item.c}}">{{item.a}}</view></view>

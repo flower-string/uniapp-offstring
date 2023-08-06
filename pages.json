@@ -41,17 +41,22 @@
 			"style": {
 				"navigationBarTitleText": "设置"
 			}
+		}, {
+			"path": "pages/visa/visa",
+			"style": {
+				"navigationBarTitleText": "日签墙",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "编辑资料",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/visa/visa",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "日签墙",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

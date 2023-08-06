@@ -1,0 +1,21 @@
+
+.nav.data-v-2c10a28a {
+		width: 100vw;
+		overflow-x: scroll;
+		white-space: nowrap;
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0;
+		top: 0;
+}
+.nav .item.data-v-2c10a28a {
+		height: 100%;
+		margin: 10rpx 20rpx 0 20rpx;
+		color: #bcbcbc;
+		display: inline-block;
+		word-wrap: none;
+}
+.nav .item.active.data-v-2c10a28a {
+		border-bottom: 3px solid #25d3de;
+		color: black;
+}

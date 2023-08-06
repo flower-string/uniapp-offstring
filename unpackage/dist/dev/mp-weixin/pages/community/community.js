@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const MooNav = () => "../../components/MooNav.js";
 const _sfc_main = {
   data() {
     return {
@@ -8,12 +9,16 @@ const _sfc_main = {
       cards: [
         { text: "日签墙", icon: "icon-qiandao", path: "visa" },
         { text: "装扮", icon: "icon-qunzi", path: "dress" },
-        { text: "写谱", icon: "icon-yongyan", path: "setting" }
+        { text: "写谱", icon: "icon-yongyan", path: "profile" }
       ]
     };
   },
+  components: {
+    MooNav
+  },
   methods: {
     setCurrent(index) {
+      console.log(index);
       this.current = index;
     },
     createCommit() {
@@ -25,23 +30,25 @@ const _sfc_main = {
     }
   }
 };
+if (!Array) {
+  const _component_MooNav = common_vendor.resolveComponent("MooNav");
+  _component_MooNav();
+}
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.f($data.navs, (item, index, i0) => {
-      return {
-        a: common_vendor.t(item),
-        b: common_vendor.n(index == $data.current ? "active" : ""),
-        c: common_vendor.o(($event) => $options.setCurrent(index))
-      };
+    a: common_vendor.o($options.setCurrent),
+    b: common_vendor.p({
+      navs: $data.navs,
+      current: $data.current
     }),
-    b: common_vendor.f($data.cards, (item, k0, i0) => {
+    c: common_vendor.f($data.cards, (item, k0, i0) => {
       return {
         a: common_vendor.n(item.icon),
         b: common_vendor.t(item.text),
         c: common_vendor.o(($event) => $options.toPage(item.path))
       };
     }),
-    c: common_vendor.o((...args) => $options.createCommit && $options.createCommit(...args))
+    d: common_vendor.o((...args) => $options.createCommit && $options.createCommit(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/Web前端/Project/offstring/pages/community/community.vue"]]);
