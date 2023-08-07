@@ -1,0 +1,87 @@
+
+.avatar[data-v-c8a835f9] {
+		--size: 0;
+		width: var(--size);
+		height: var(--size);
+		border-radius: 50%;
+		position: relative;
+}
+.avatar .ava[data-v-c8a835f9] {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+}
+.avatar .avaborder[data-v-c8a835f9] { 
+		position: absolute;
+		width: 120%;
+		height: 120%;
+		left: -10%;
+		top: -10%;
+		z-index: 1;
+}
+
+
+.image {
+		width: 90vw;
+		overflow: hidden;
+		border-radius: 0.625rem;
+		aspect-ratio: 4/3;
+		margin: auto;
+		margin-top: 3.125rem;
+}
+uni-image {
+		width: 100%;
+		height: 100%;
+}
+.ping {
+		width: 90vw;
+		margin: auto;
+		margin-top: 1.5625rem;
+		padding: 1.5625rem;
+}
+.info {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+}
+.info uni-view {
+		margin: 0.3125rem;
+}
+.name {
+		color: black;
+}
+.riqi {
+		color: #a6a6a6;
+}
+.content {
+		margin: 0.9375rem 0.3125rem;
+}
+.left, .right {
+		font-size: 1.875rem;
+		color: #25d3de;
+}
+.right {
+		text-align: right;
+}
+.article {
+		text-indent: 2em;
+		color: #4b4b4b;
+}
+.btn {
+		width: 50vw;
+		height: 5vh;
+		text-align: center;
+		margin: auto;
+		line-height: 5vh;
+		font-size: 2vh;
+		margin-top: 3vh;
+		background-color: white;
+		border: 1px solid #25d3de;
+		color: #25d3de;
+		border-radius: 2.5vh;
+}
+.btn.visad {
+		background-color: #a6a6a6;
+		color: #4b4b4b;
+		border: #4b4b4b;
+}

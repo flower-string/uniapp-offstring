@@ -1,0 +1,123 @@
+
+.nav[data-v-2c10a28a] {
+		width: 100vw;
+		overflow-x: scroll;
+		white-space: nowrap;
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0;
+		top: 0;
+}
+.nav .item[data-v-2c10a28a] {
+		height: 100%;
+		margin: 0.3125rem 0.625rem 0 0.625rem;
+		color: #bcbcbc;
+		display: inline-block;
+		word-wrap: none;
+}
+.nav .item.active[data-v-2c10a28a] {
+		border-bottom: 3px solid #25d3de;
+		color: black;
+}
+
+
+.avatar[data-v-c8a835f9] {
+		--size: 0;
+		width: var(--size);
+		height: var(--size);
+		border-radius: 50%;
+		position: relative;
+}
+.avatar .ava[data-v-c8a835f9] {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+}
+.avatar .avaborder[data-v-c8a835f9] { 
+		position: absolute;
+		width: 120%;
+		height: 120%;
+		left: -10%;
+		top: -10%;
+		z-index: 1;
+}
+
+
+.moo-nav[data-v-09f67aae] {
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0;
+		top: 0;
+}
+.lbody[data-v-09f67aae] {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		margin: auto;
+}
+.container1[data-v-09f67aae],
+	.container2[data-v-09f67aae],
+	.container3[data-v-09f67aae],
+	.container4[data-v-09f67aae]{
+		width: 98vw;
+		margin: auto;
+		padding: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+}
+.container1 .box[data-v-09f67aae] {
+		display: block;
+		width: 28vw;
+		height: 40vw;
+		margin: 2vw;
+}
+.container1 .card[data-v-09f67aae] {
+		background-color: white;
+		display: flex;
+		width: 28vw;
+		height: 28vw;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0.9375rem;
+		box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+.price[data-v-09f67aae], 
+	.name[data-v-09f67aae] {
+		text-indent: 0.3125rem;
+}
+.price[data-v-09f67aae] {
+		color: #25d3de;
+		font-size: 0.625rem;
+}
+	
+/* 	.container2 .box {
+		width: 28vw;
+		height: 30vh;
+		margin: 2vw;
+		border-radius: 25rpx;
+	}
+	
+	.container2 .card {
+		width: 100%;
+		height: 25vh;
+	}
+	 */
+.container3 .box[data-v-09f67aae],
+	.container4 .box[data-v-09f67aae],
+	.container2 .box[data-v-09f67aae]{
+		width: 45vw;
+		margin: 2vw;
+		border-radius: 0.78125rem;
+}
+.card[data-v-09f67aae] {
+		width: 100%;
+		height: 15vh;
+		border-radius: 1.25rem;
+		overflow: hidden;
+}
+uni-image[data-v-09f67aae] {
+		width: 100%;
+		height: 100%;
+}

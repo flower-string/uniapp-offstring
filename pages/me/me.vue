@@ -6,7 +6,7 @@
 			</view>
 			<view class="user">
 				<Avatar size="100rpx" 
-								:avatarImage="info.avatarUrl"
+								:avatarImage="info.avatar"
 								borderImage="/static/avatar/purple.png"
 								class="avatarbox">
 				</Avatar>
@@ -22,7 +22,7 @@
 					</view>
 				</view>
 				<view class="desc">
-					{{ info.desc }}
+					{{ info.desc ? info.desc : '你还没有编写过个人简介' }}
 				</view>
 			</view>
 		</view>
@@ -73,15 +73,21 @@
 <script>
 	import Avatar from '/components/Avatar.vue'
 	
+	import { useUserStore } from '@/store/user.js';
+	import { storeToRefs } from 'pinia';
+	
+	const userStore = useUserStore();
+	const { avatar, nickName, ip, tags, desc, avatarFarme } = storeToRefs(userStore);
 	export default {
 		data() {
 			return {
 				info: {
-					avatarUrl: '/static/logo.png',
-					nickName: '姓名',
-					ip: '未知',
-					desc: '你还没有写过个人介绍',
-					tags: ['稀里糊兔', '00后', '天平座', '300天'],
+					avatar,
+					avatarFarme,
+					nickName,
+					ip,
+					desc,
+					tags,
 					biixn: 0,
 					tiezi: 0,
 					yuepu: 0,

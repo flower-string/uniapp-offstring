@@ -1,15 +1,19 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const store_user = require("../../store/user.js");
 const Avatar = () => "../../components/Avatar.js";
+const userStore = store_user.useUserStore();
+const { avatar, nickName, ip, tags, desc, avatarFarme } = common_vendor.storeToRefs(userStore);
 const _sfc_main = {
   data() {
     return {
       info: {
-        avatarUrl: "/static/logo.png",
-        nickName: "姓名",
-        ip: "未知",
-        desc: "你还没有写过个人介绍",
-        tags: ["稀里糊兔", "00后", "天平座", "300天"],
+        avatarUrl,
+        avatarFarme,
+        nickName,
+        ip,
+        desc,
+        tags,
         biixn: 0,
         tiezi: 0,
         yuepu: 0

@@ -122,15 +122,20 @@
 </template>
 
 <script>
+	import { useUserStore } from '@/store/user.js';
+	import { storeToRefs } from 'pinia';
+	
+	const userStore = useUserStore();
+	const { nickName, desc, sex, birthday, avatar } = storeToRefs(userStore);
 	export default {
 		data() {
 			return {
 				info: {
-					nickName: '定风波',
-					desc: '',
-					sex: 'girl',
-					birthday: '2022-1-1',
-					avatar: '/static/logo.png'
+					nickName,
+					desc,
+					sex,
+					birthday,
+					avatar,
 				}
 			}
 		},
