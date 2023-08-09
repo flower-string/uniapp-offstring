@@ -2,8 +2,8 @@
 	<view>
 		<view class="top">
 			<view class="choose">
-				<uni-file-picker limit="1" :del-icon="false" :imageStyles="info.avatar"
-												 file-mediatype="image">选择</uni-file-picker>
+				<uni-file-picker limit="1" :del-icon="false"
+					file-mediatype="image">选择</uni-file-picker>
 			</view>
 			<view class="">
 				点击更换头像
@@ -17,7 +17,7 @@
 				</view>
 				<view class="right">
 					<view class="content">
-						{{ info.nickName }}
+						{{ nickName }}
 					</view>
 					<view class="iconfont">
 						1
@@ -35,7 +35,7 @@
 
 				<view class="right">
 					<view class="content">
-						{{ info.desc }}
+						{{ desc }}
 					</view>
 
 					<view class="iconfont">
@@ -54,7 +54,7 @@
 
 				<view class="right">
 					<view class="content">
-						{{ info.sex }}
+						{{ sex }}
 					</view>
 
 					<view class="iconfont">
@@ -66,7 +66,7 @@
 
 			<view class="line"></view>
 
-			<uni-datetime-picker v-model="info.birthday" type="date">
+			<uni-datetime-picker v-model="birthday" type="date">
 				<view class="list-item">
 					<view class="">
 						生日
@@ -74,7 +74,7 @@
 
 					<view class="right">
 						<view class="content">
-							{{ info.birthday }}
+							{{ birthday }}
 						</view>
 
 						<view class="">
@@ -98,11 +98,7 @@
 		<view>
 			<!-- 输入框示例 -->
 			<uni-popup ref="descInputDialog" type="dialog">
-				<uni-popup-dialog ref="inputClose" 
-													mode="input" 
-													title="编辑你的个人简介" 
-													value="" 
-													placeholder="请输入个人简介"
+				<uni-popup-dialog ref="inputClose" mode="input" title="编辑你的个人简介" value="" placeholder="请输入个人简介"
 					@confirm="setDesc"></uni-popup-dialog>
 			</uni-popup>
 		</view>
@@ -110,80 +106,53 @@
 		<view>
 			<!-- 输入框示例 -->
 			<uni-popup ref="nickNameInputDialog" type="dialog">
-				<uni-popup-dialog ref="inputClose" 
-													mode="input" 
-													title="修改昵称,每月只能修改一次" 
-													value="" 
-													placeholder="请输入昵称"
+				<uni-popup-dialog ref="inputClose" mode="input" title="修改昵称,每月只能修改一次" value="" placeholder="请输入昵称"
 					@confirm="setNickName"></uni-popup-dialog>
 			</uni-popup>
 		</view>
 	</view>
 </template>
 
-<script>
+<script setup>
 	import { useUserStore } from '@/store/user.js';
 	import { storeToRefs } from 'pinia';
-	
+	import { ref } from 'vue';
+
 	const userStore = useUserStore();
-	const { nickName, desc, sex, birthday, avatar } = storeToRefs(userStore);
-	export default {
-		data() {
-			return {
-				info: {
-					nickName,
-					desc,
-					sex,
-					birthday,
-					avatar,
-				}
-			}
-		},
-		methods: {
-			// 获取上传状态
-			select(e) {
-				console.log('选择文件：', e)
-			},
-			// 获取上传进度
-			progress(e) {
-				console.log('上传进度：', e)
-			},
+	const {
+		nickName,
+		desc,
+		sex,
+		birthday,
+		avatar
+	} = storeToRefs(userStore);
 
-			// 上传成功
-			success(e) {
-				console.log('上传成功')
-			},
+	const sexpopup = ref(null);
+	function openSex() {
+		sexpopup.open();
+	}
 
-			// 上传失败
-			fail(e) {
-				console.log('上传失败：', e)
-			},
+	function setSex(str) {
+		info.value.sex = str;
+		sexpopup.close();
+	}
 
-			openSex() {
-				this.$refs.sexpopup.open();
-			},
+	const nickNameInputDialog = ref(null);
+	function openNickName() {
+		nickNameInputDialog.value.open();
+	}
 
-			setSex(str) {
-				this.info.sex = str;
-				this.$refs.sexpopup.close();
-			},
+	function setNickName(value) {
+		info.value.nickName = value;
+	}
 
-			openNickName() {
-				this.$refs.nickNameInputDialog.open();
-			},
+	const descInputDialog = ref(null);
+	function openDesc() {
+		descInputDialog.value.open();
+	}
 
-			setNickName(value) {
-				this.info.nickName = value;
-			},
-
-			openDesc() {
-				this.$refs.descInputDialog.open();
-			},
-
-			setDesc(value) {
-				this.info.desc = value;
-			}
-		}
+	function setDesc(value) {
+		info.value.desc = value;
 	}
 </script>
 
@@ -231,7 +200,7 @@
 		background-color: #a6a6a6;
 		margin: auto;
 	}
-	
+
 	.choose {
 		background-color: #f8f8f8;
 		border-radius: 50%;

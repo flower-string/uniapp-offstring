@@ -42,27 +42,18 @@
 	</view>
 </template>
 
-<script>
+<script setup>
 	import Avatar from '../../components/Avatar.vue'
+	import { ref } from 'vue';
 	
-	export default {
-		data() {
-			return {
-				visad: false
-			}
-		},
-		components: {
-			Avatar
-		},
-		methods: {
-			setVisad() {
-				if(this.visad) {
-					return;
-				}
-				this.visad = true;
-				console.log("签到成功");
-			}
+	const visad = ref(false);
+	
+	const setVisad = () => {
+		if(visad.value) {
+			return;
 		}
+		visad.value = true;
+		console.log("签到成功");
 	}
 </script>
 

@@ -1,14 +1,17 @@
 "use strict";
+const store_user = require("../../store/user.js");
 const common_vendor = require("../../common/vendor.js");
+const userStore = store_user.useUserStore();
+const { nickName, desc, sex, birthday, avatar } = common_vendor.storeToRefs(userStore);
 const _sfc_main = {
   data() {
     return {
       info: {
-        nickName: "定风波",
-        desc: "",
-        sex: "girl",
-        birthday: "2022-1-1",
-        avatar: "/static/logo.png"
+        nickName,
+        desc,
+        sex,
+        birthday,
+        avatar
       }
     };
   },

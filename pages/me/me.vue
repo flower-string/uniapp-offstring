@@ -6,23 +6,23 @@
 			</view>
 			<view class="user">
 				<Avatar size="100rpx" 
-								:avatarImage="info.avatar"
+								:avatarImage="avatar"
 								borderImage="/static/avatar/purple.png"
 								class="avatarbox">
 				</Avatar>
 				<view class="nickname">
-					{{ info.nickName }}
+					{{ nickName }}
 				</view>
 				<view class="ip">
-					ip属地：{{ info.ip }}
+					ip属地：{{ ip }}
 				</view>
 				<view class="tags">
-					<view class="tag" v-for="item in info.tags">
+					<view class="tag" v-for="item in tags">
 						{{ item }}
 					</view>
 				</view>
 				<view class="desc">
-					{{ info.desc ? info.desc : '你还没有编写过个人简介' }}
+					{{ desc ? desc : '你还没有编写过个人简介' }}
 				</view>
 			</view>
 		</view>
@@ -44,7 +44,7 @@
 					收到比心
 				</view>
 				<view class="num">
-					{{ info.biixn }}
+					{{ bixin }}
 				</view>
 			</view>
 			
@@ -53,7 +53,7 @@
 					社区发言
 				</view>
 				<view class="num">
-					{{ info.tiezi }}
+					{{ tiezi }}
 				</view>
 			</view>
 			
@@ -62,7 +62,7 @@
 					乐谱创作
 				</view>
 				<view class="num">
-					{{ info.yuepu }}
+					{{ yuepu }}
 				</view>
 			</view>
 		</view>
@@ -70,36 +70,21 @@
 	
 </template>
 
-<script>
+<script setup>
 	import Avatar from '/components/Avatar.vue'
 	
+	import { ref } from 'vue';
+	import { onLoad } from '@dcloudio/uni-app'
 	import { useUserStore } from '@/store/user.js';
 	import { storeToRefs } from 'pinia';
 	
 	const userStore = useUserStore();
 	const { avatar, nickName, ip, tags, desc, avatarFarme } = storeToRefs(userStore);
-	export default {
-		data() {
-			return {
-				info: {
-					avatar,
-					avatarFarme,
-					nickName,
-					ip,
-					desc,
-					tags,
-					biixn: 0,
-					tiezi: 0,
-					yuepu: 0,
-				}
-			}
-		},
-		components: {
-			Avatar,
-		},
-		methods: {
-			wxLogin() {
-				let that = this;
+	const bixin = ref(0);
+	const tiezi = ref(0);
+	const yuepu = ref(0);
+	
+		function wxLogin() {
 				uni.login({
 					provider: 'weixin',
 					success: function(loginRes) {
@@ -108,8 +93,8 @@
 							desc: '用于显示用户头像和姓名',
 							success: function(infoRes) {
 								console.log('用户昵称为：' + infoRes);
-								that.info.nickName = infoRes.userInfo.nickName;
-								that.info.avatarUrl = infoRes.userInfo.avatarUrl;
+								nickName = infoRes.userInfo.nickName;
+								avatar = infoRes.userInfo.avatarUrl;
 							}, 
 							fail() {
 								console.log("失败");
@@ -117,20 +102,18 @@
 						});
 					},
 				});
+		}
 
-			},
-			toPage(url) {
+		function toPage(url) {
 				console.log(url);
 				uni.navigateTo({
 					url: `/pages/${url}/${url}`
 				})
 			}
-		},
 
-		onLoad() {
-			this.wxLogin();
-		}
-	}
+		onLoad(() => {
+			wxLogin();
+		})
 </script>
 
 <style scoped>

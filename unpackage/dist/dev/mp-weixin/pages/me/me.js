@@ -8,7 +8,7 @@ const _sfc_main = {
   data() {
     return {
       info: {
-        avatarUrl,
+        avatar,
         avatarFarme,
         nickName,
         ip,
@@ -62,7 +62,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.p({
       size: "100rpx",
-      avatarImage: $data.info.avatarUrl,
+      avatarImage: $data.info.avatar,
       borderImage: "/static/avatar/purple.png"
     }),
     b: common_vendor.t($data.info.nickName),
@@ -72,7 +72,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         a: common_vendor.t(item)
       };
     }),
-    e: common_vendor.t($data.info.desc),
+    e: common_vendor.t($data.info.desc ? $data.info.desc : "你还没有编写过个人简介"),
     f: common_vendor.o(($event) => $options.toPage("dress")),
     g: common_vendor.o(($event) => $options.toPage("profile")),
     h: common_vendor.t($data.info.biixn),

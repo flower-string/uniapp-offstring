@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "pinia": "^2.1.6"
+  },
+  "devDependencies": {
+    "unplugin-vue2-script-setup": "^0.11.4"
   }
 }

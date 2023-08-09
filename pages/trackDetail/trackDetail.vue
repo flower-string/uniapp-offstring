@@ -18,7 +18,9 @@
 			</view>
 		</view>
 		<view class="content">
-		
+			<view class="note" v-for="item in songNotes">
+				{{ item.key }}
+			</view>
 		</view>
 		
 		<view class="">
@@ -30,50 +32,28 @@
 	
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				info: '',
-				loved: true
-			}
-		},
-		methods: {
-			upLoadMusic() {
-				//选择音频文件
-				uni.chooseFile({
-					count: 1, //选取的文件个数限制
-					extension: [".mp3", ".ogg"], //可定义允许哪些后缀的文件可被选择
-					success: function(res) {
-						let tempFilePaths = res.tempFilePaths;
-						uni.showLoading({
-							title: "上传中...",
-						});
-						uni.uploadFile({
-							name: "files[]", //文件上传的name值
-							url: 'http://api.xxxx.com/upload', //接口地址
-							header: {}, //头信息
-							formData: {}, //上传额外携带的参数
-							filePath: tempFilePaths[0], //临时路径
-							fileType: "audio", //文件类型
-							success: (uploadFileRes) => {
-								uni.hideLoading();
-								const ret = JSON.parse(uploadFileRes.data);
-								console.log(ret);
-							},
-						});
-					},
-				});
-			},
-			setLove() {
-				this.loved = !this.loved;
-			}
-		},
-		onLoad(option) {
-			const data = JSON.parse(decodeURIComponent(option.item));
-			this.info = data;
-		}
+<script setup>
+	import { track } from '/static/tmp/old_memory.js'
+	import { ref } from 'vue';
+	import { onLoad } from '@dcloudio/uni-app'
+	
+	const songNotes = ref(track.songNotes);
+	const info = ref({cover: '', name: '', author: ''});
+	
+	const loved = ref(false);
+	const setLove = () => {
+	  loved.value = !loved.value;
 	}
+	
+	onLoad((option) => {
+	  const data = JSON.parse(decodeURIComponent(option.item));
+	  info.value = data;
+	  
+	  songNotes.value.map(item => {
+	    item.time;
+	    item.key = item.key.match(/\d{1,2}$/) ? parseInt(item.key.match(/\d{1,2}$/)[0]) + 1 : '';
+	  });
+	})
 </script>
 
 <style>
@@ -129,6 +109,13 @@
 		height: 80vh;
 		overflow-y: scroll;
 		border: 1px solid white;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.note {
+		--left: 20rpx;
+		margin: var(--left);
 	}
 
 	.love {
